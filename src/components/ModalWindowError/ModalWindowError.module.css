@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+.errorIcon {
+  display: block;
+  margin: 52px auto 0;
+}
+.buttonWrap {
+  display: flex;
+  justify-content: end;
+  margin-top: 48px;
+}
