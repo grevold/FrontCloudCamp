@@ -9,6 +9,11 @@ body {
   background-color: var(--color-primary-gray);
 }
 
+button {
+  border: none;
+  cursor: pointer;
+}
+
 :root {
   /* Отступы */
   --gap-xs: 4px;
