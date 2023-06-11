@@ -10,7 +10,6 @@ export function MainPage() {
     <Container className={s.root}>
       <h1>main page</h1>
       <StyledLink to="/step1">Начать</StyledLink>
-      <ModalWindowSuccess onClose={() => console.log("Handle close")} />
     </Container>
   );
 }
