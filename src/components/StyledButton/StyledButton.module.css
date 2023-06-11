@@ -1,0 +1,11 @@
+.root {
+  padding: 0 16px;
+  border-radius: 4px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  background-color: var(--color-blue);
+  color: var(--color-white);
+}
