@@ -1,6 +1,4 @@
 import { Container } from "../../components/Container/Container";
-import { ModalWindowError } from "../../components/ModalWindowError/ModalWindowError";
-import { ModalWindowSuccess } from "../../components/ModalWindowSuccess/ModalWindowSuccess";
 import { StyledLink } from "../../components/StyledLink/StyledLink";
 
 import s from "./MainPage.module.css";
