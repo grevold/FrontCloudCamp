@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/FrontCloudCamp/static/css/main.c7ec3132.css",
+    "main.js": "/FrontCloudCamp/static/js/main.b555d6f0.js",
+    "static/js/787.0217c058.chunk.js": "/FrontCloudCamp/static/js/787.0217c058.chunk.js",
+    "index.html": "/FrontCloudCamp/index.html",
+    "main.c7ec3132.css.map": "/FrontCloudCamp/static/css/main.c7ec3132.css.map",
+    "main.b555d6f0.js.map": "/FrontCloudCamp/static/js/main.b555d6f0.js.map",
+    "787.0217c058.chunk.js.map": "/FrontCloudCamp/static/js/787.0217c058.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c7ec3132.css",
+    "static/js/main.b555d6f0.js"
+  ]
+}
