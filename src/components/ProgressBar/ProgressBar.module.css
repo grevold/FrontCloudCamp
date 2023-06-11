@@ -1,0 +1,44 @@
+.root {
+  height: 43px;
+}
+
+.row {
+  height: 8px;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.progressLine {
+  border-radius: 8px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #5558fa;
+}
+
+.item {
+  /* position: absolute; */
+  position: relative;
+  top: -4px;
+  z-index: 1;
+  text-align: center;
+  /* transform: translate(-50%, 0); */
+}
+
+.point {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #a6a6a6;
+  margin-bottom: 12px;
+}
+
+.number {
+  font-weight: 400;
+  font-size: 14px;
+  color: #666666;
+}
