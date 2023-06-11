@@ -1,8 +1,11 @@
+@import "./fonts/SB_Sans_Interface/SB_Sans_Interface.css";
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   text-decoration: none;
+  font-family: var(--font-sb-sans-interface);
 }
 
 body {
@@ -24,4 +27,7 @@ button {
   --color-primary-gray: #f4f4f5;
   --color-white: #ffffff;
   --color-blue: #5558fa;
+
+  /* Шрифты */
+  --font-sb-sans-interface: "SB_Sans_Interface";
 }

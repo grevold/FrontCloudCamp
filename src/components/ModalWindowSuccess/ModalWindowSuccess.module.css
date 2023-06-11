@@ -3,11 +3,16 @@
   margin: 0 auto;
   text-align: center;
   font-size: 20px;
+  font-weight: 600;
+  line-height: 26px;
+  font-style: normal;
 }
+
 .successIcon {
   display: block;
   margin: 50px auto 48px;
 }
+
 .button {
   display: block;
   margin: 0 auto;
