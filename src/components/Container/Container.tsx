@@ -1,7 +1,15 @@
 import { PropsWithChildren, FC } from "react";
+import cn from "classnames";
 
 import s from "./Container.module.css";
 
-export const Container: FC<PropsWithChildren> = ({ children }) => {
-  return <div className={s.root}>{children}</div>;
+interface Props {
+  className?: string;
+}
+
+export const Container: FC<PropsWithChildren<Props>> = ({
+  children,
+  className,
+}) => {
+  return <div className={cn(s.root, className)}>{children}</div>;
 };
