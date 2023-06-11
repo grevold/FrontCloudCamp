@@ -9,10 +9,10 @@ function App() {
   return (
     <HashRouter>
       <Routes>
-        <Route element={<MainPage />} path={RoutePath.MainPage}></Route>
-        <Route element={<Step1Page />} path={RoutePath.Step1Page}></Route>
-        <Route element={<Step2Page />} path={RoutePath.Step2Page}></Route>
-        <Route element={<Step3Page />} path={RoutePath.Step3Page}></Route>
+        <Route element={<Step1Page />} path={RoutePath.Step1Page} />
+        <Route element={<Step2Page />} path={RoutePath.Step2Page} />
+        <Route element={<Step3Page />} path={RoutePath.Step3Page} />
+        <Route element={<MainPage />} path={RoutePath.MainPage} />
       </Routes>
     </HashRouter>
   );
