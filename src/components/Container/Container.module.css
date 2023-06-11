@@ -3,5 +3,5 @@
   max-width: 900px;
   margin: var(--gap-l) auto;
   border-radius: 12px;
-  background-color: var(--color-container);
+  background-color: var(--color-white);
 }
