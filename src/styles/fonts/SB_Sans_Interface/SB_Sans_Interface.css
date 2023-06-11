@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "SB_Sans_Interface";
+  font-weight: 400;
+  src: url(SB_Sans_Interface/SB_Sans_Interface_Regular.ttf) format("ttf"),
+    url(SB_Sans_Interface/SB_Sans_Interface_Regular.eot) format("eot"),
+    url(SB_Sans_Interface/SB_Sans_Interface_Regular.woff) format("woff"),
+    url(SB_Sans_Interface/SB_Sans_Interface_Regular.woff2) format("woff2"),
+    url(SB_Sans_Interface/SB_Sans_Interface_Regular.otf) format("otf");
+}
+
+@font-face {
+  font-family: "SB_Sans_Interface";
+  font-weight: 600;
+  src: url(SB_Sans_Interface/SB_Sans_Interface_Bold.ttf) format("ttf"),
+    url(SB_Sans_Interface/SB_Sans_Interface_Bold.eot) format("eot"),
+    url(SB_Sans_Interface/SB_Sans_Interface_Bold.woff) format("woff"),
+    url(SB_Sans_Interface/SB_Sans_Interface_Bold.woff2) format("woff2"),
+    url(SB_Sans_Interface/SB_Sans_Interface_Bold.otf) format("otf");
+}
