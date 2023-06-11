@@ -1,0 +1,7 @@
+.root {
+  width: calc(100% - 2 * var(--gap-s));
+  max-width: 900px;
+  margin: var(--gap-l) auto;
+  border-radius: 12px;
+  background-color: var(--color-container);
+}

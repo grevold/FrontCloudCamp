@@ -1,3 +1,9 @@
+import { Container } from "../../components/Container/Container";
+
 export function MainPage() {
-  return <h1>main page</h1>;
+  return (
+    <Container>
+      <h1>main page</h1>
+    </Container>
+  );
 }

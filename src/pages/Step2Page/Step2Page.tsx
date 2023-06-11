@@ -1,3 +1,9 @@
+import { Container } from "../../components/Container/Container";
+
 export function Step2Page() {
-  return <h1>step2</h1>;
+  return (
+    <Container>
+      <h1>Step2Page</h1>
+    </Container>
+  );
 }
