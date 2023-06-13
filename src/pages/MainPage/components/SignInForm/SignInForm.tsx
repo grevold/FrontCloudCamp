@@ -15,7 +15,7 @@ export const SignInForm: React.FC<Props> = ({ onSubmit, onClick }) => {
 
   return (
     <form onSubmit={submit} onClick={onClick} className={s.root}>
-      <div className={s.inputs}>
+      <div className={s.container}>
         <div className={s.item}>
           <span className={s.title}>Номер телефона</span>
           <input
@@ -41,7 +41,6 @@ export const SignInForm: React.FC<Props> = ({ onSubmit, onClick }) => {
           )}
         </div>
       </div>
-
       <StyledLink to={RoutePath.Step1Page}>Начать</StyledLink>
     </form>
   );
