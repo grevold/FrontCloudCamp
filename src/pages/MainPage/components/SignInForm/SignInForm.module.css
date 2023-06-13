@@ -1,0 +1,27 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 24px;
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+.input {
+  height: 44px;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 4px;
+  padding: 12px;
+}
+.title {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.error_message {
+  color: red;
+}
