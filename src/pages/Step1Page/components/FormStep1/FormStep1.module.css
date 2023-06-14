@@ -1,0 +1,66 @@
+.root {
+  margin-top: 67px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+}
+.input {
+  height: 44px;
+  background: none;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 4px;
+  padding: 12px;
+  width: 300px;
+}
+.select {
+  composes: input;
+  margin-bottom: 88px;
+  cursor: pointer;
+}
+.input_area {
+  display: flex;
+  flex-direction: column;
+}
+select::-ms-expand {
+  display: none;
+}
+.title {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.tip {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.48);
+  margin-top: 8px;
+  cursor: pointer;
+}
+.error_message {
+  color: red;
+}
+
+@media (min-width: 600px) {
+  .container {
+    max-width: 600px;
+  }
+  .input_area {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .error_message {
+    margin-left: 20px;
+  }
+  .input_area {
+    align-items: center;
+  }
+}
