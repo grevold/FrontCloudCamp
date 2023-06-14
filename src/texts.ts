@@ -24,5 +24,16 @@ export const texts = {
         required: "выберите пол",
       },
     },
+    Step2: {
+      advantages: {
+        required: "укажите nickname",
+      },
+      checkBox: {
+        required: "выберите checkBox",
+      },
+      radio: {
+        required: "выберите radio",
+      },
+    },
   },
 };

@@ -1,0 +1,124 @@
+.root {
+  margin-top: 67px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+}
+.header {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.item {
+  display: flex;
+  margin-bottom: 8px;
+}
+.input {
+  height: 44px;
+  background: none;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 4px;
+  padding: 12px;
+  width: 300px;
+}
+.select {
+  composes: input;
+  margin-bottom: 88px;
+  cursor: pointer;
+}
+.input_area {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+.deleteIcon {
+  display: flex;
+  align-items: center;
+}
+select::-ms-expand {
+  display: none;
+}
+.title {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.tip {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.48);
+  margin-top: 8px;
+  cursor: pointer;
+}
+.error_message {
+  color: red;
+}
+.advantages {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+.addAdvantages {
+  width: 44px;
+  height: 44px;
+  color: #5558fa;
+  border: 1.5px solid #5558fa;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 26px;
+  font-weight: 400;
+}
+.addAdvantages:hover {
+  background-color: #5558fa;
+  color: white;
+}
+
+.buttonDelete {
+  background-color: white;
+  margin-left: 18px;
+}
+.checkBoxList {
+  list-style: none;
+}
+.checkBox {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid #0000003d;
+  border-radius: 4px;
+}
+.checkBoxRadio {
+  composes: checkBox;
+  border-radius: 50%;
+  vertical-align: middle;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+.checkBoxRadio:checked {
+  background-color: #5558fa;
+}
+
+@media (min-width: 600px) {
+  .container {
+    max-width: 600px;
+  }
+  .input_area {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .error_message {
+    margin-left: 20px;
+  }
+  .input_area {
+    align-items: center;
+  }
+  .item {
+    flex-direction: row;
+    align-items: center;
+  }
+}
