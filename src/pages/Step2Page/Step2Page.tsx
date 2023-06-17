@@ -8,7 +8,7 @@ export function Step2Page() {
   return (
     <Container>
       <FormContainer>
-        <ProgressBar currentValue={4} maxValue={4} />
+        <ProgressBar currentValue={2} maxValue={3} />
         <FormStep2 onSubmit={() => {}} onClick={() => {}} />
         <ButtonsNavigation />
       </FormContainer>

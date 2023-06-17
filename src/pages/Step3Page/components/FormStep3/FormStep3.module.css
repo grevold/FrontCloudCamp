@@ -1,0 +1,28 @@
+.form {
+  margin-top: 66px;
+}
+
+.label {
+  display: block;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.textarea {
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 4px;
+  padding: 12px;
+  width: 100%;
+  resize: vertical;
+  margin-top: 8px;
+}
+
+.tip {
+  color: rgba(0, 0, 0, 0.48);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 8px;
+}
