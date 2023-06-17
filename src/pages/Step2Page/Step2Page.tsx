@@ -9,7 +9,7 @@ export function Step2Page() {
     <Container>
       <FormContainer>
         <ProgressBar currentValue={2} maxValue={3} />
-        <FormStep2 onSubmit={() => {}} onClick={() => {}} />
+        <FormStep2 onSubmit={console.log} onClick={() => {}} />
         <ButtonsNavigation />
       </FormContainer>
     </Container>
