@@ -22,7 +22,6 @@
 }
 .select {
   composes: input;
-  margin-bottom: 88px;
   cursor: pointer;
 }
 .input_area {
@@ -59,8 +58,5 @@ select::-ms-expand {
   }
   .error_message {
     margin-left: 20px;
-  }
-  .input_area {
-    align-items: center;
   }
 }

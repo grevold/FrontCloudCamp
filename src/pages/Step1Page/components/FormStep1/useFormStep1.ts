@@ -31,7 +31,7 @@ const formSchema = object().shape({
     .matches(/^[a-zA-Zа-яА-ЯёЁ]+$/, "Sername может содержать только буквы")
     .max(50, "Максимальная длина Sername - 50 символов"),
   sex: string()
-    .oneOf([Sex.Man, Sex.Woman], "Неверно указан пол")
+    .oneOf([Sex.Man, Sex.Woman], "Нужно указать пол")
     .required("Нужно указать пол"),
 });
 
