@@ -34,10 +34,7 @@
   flex-direction: column;
   margin-bottom: 8px;
 }
-.deleteIcon {
-  display: flex;
-  align-items: center;
-}
+
 select::-ms-expand {
   display: none;
 }
@@ -67,7 +64,6 @@ select::-ms-expand {
   color: #5558fa;
   border: 1.5px solid #5558fa;
   border-radius: 4px;
-  background-color: white;
   font-size: 26px;
   font-weight: 400;
 }
@@ -77,7 +73,6 @@ select::-ms-expand {
 }
 
 .buttonDelete {
-  background-color: white;
   margin-left: 18px;
 }
 .checkBoxList {

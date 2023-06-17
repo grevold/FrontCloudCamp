@@ -23,8 +23,6 @@ export const FormStep2: React.FC<Props> = ({ onSubmit, onClick }) => {
   } = useFormStep2(onSubmit);
   const { errors } = formState;
 
-  console.log(errors);
-
   const AdvantageInput = ({ index }: { index: number }) => {
     const fieldName = `advantages.${index}`;
     const errorMessage = errors.advantages?.[index]?.message;
@@ -38,14 +36,12 @@ export const FormStep2: React.FC<Props> = ({ onSubmit, onClick }) => {
           placeholder="Placeholder"
           key={index}
         />
-        <div className={s.deleteIcon}>
-          <button
-            className={s.buttonDelete}
-            onClick={() => handleRemoveAdvantage(index)}
-          >
-            <TrashIcon />
-          </button>
-        </div>
+        <button
+          className={s.buttonDelete}
+          onClick={() => handleRemoveAdvantage(index)}
+        >
+          <TrashIcon />
+        </button>
         {errorMessage && (
           <span className={s.error_message}>{errorMessage}</span>
         )}
