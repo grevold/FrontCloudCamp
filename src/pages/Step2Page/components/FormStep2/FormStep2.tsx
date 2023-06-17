@@ -1,6 +1,6 @@
 import { useFormStep2 } from "./useFormStep2";
-import { useState } from "react";
 import { TrashIcon } from "../../../../icons/TrashIcon";
+import { ButtonsNavigation } from "../ButtonsNavigation/ButtonsNavigation";
 
 import s from "./FormStep2.module.css";
 
@@ -9,82 +9,98 @@ interface Props {
   onClick: () => void;
 }
 
+const checkBoxVariants = [1, 2, 3];
+const radioVariants = [1, 2, 3];
+
 export const FormStep2: React.FC<Props> = ({ onSubmit, onClick }) => {
-  const { submit, register, formState } = useFormStep2(onSubmit);
+  const {
+    submit,
+    register,
+    formState,
+    advantages,
+    handleAddAdvantage,
+    handleRemoveAdvantage,
+  } = useFormStep2(onSubmit);
   const { errors } = formState;
-  const [state, setState] = useState([1, 2, 3]);
+
+  const AdvantageInput = ({ index }: { index: number }) => {
+    const fieldName = `advantages.${index}`;
+    const errorMessage = errors.advantages?.[index]?.message;
+
+    return (
+      <div className={s.item}>
+        <input
+          // @ts-ignore
+          {...register(fieldName)}
+          className={s.input}
+          placeholder="Placeholder"
+          key={index}
+        />
+        <button
+          className={s.buttonDelete}
+          onClick={() => handleRemoveAdvantage(index)}
+        >
+          <TrashIcon />
+        </button>
+        {errorMessage && (
+          <span className={s.error_message}>{errorMessage}</span>
+        )}
+      </div>
+    );
+  };
 
   return (
     <form onSubmit={submit} onClick={onClick} className={s.root}>
       <div className={s.container}>
         <div className={s.advantages}>
           <h1 className={s.header}>Advantages</h1>
-          {state.map((input, index) => (
-            <div className={s.item}>
-              <input
-                {...register("advantages")}
-                className={s.input}
-                placeholder="Placeholder"
-                key={index}
-              />
-              <div className={s.deleteIcon}>
-                <button
-                  className={s.buttonDelete}
-                  onClick={() =>
-                    setState((prevState) => [
-                      ...prevState.filter(
-                        (value, index, array) => index !== array.length - 1
-                      ),
-                    ])
-                  }
-                >
-                  <TrashIcon />
-                </button>
-              </div>
-            </div>
+          {advantages.map((_, index) => (
+            <AdvantageInput index={index} key={index} />
           ))}
-          <button
-            className={s.addAdvantages}
-            onClick={() => setState((prevState) => [...prevState, 1])}
-          >
+          <button className={s.addAdvantages} onClick={handleAddAdvantage}>
             +
           </button>
         </div>
         <div className={s.checkBoxes}>
           <h1 className={s.header}>Checkbox group</h1>
           <ul className={s.checkBoxList}>
-            <li>
-              <input type="checkbox" value="1" className={s.checkBox} />
-              <span>1</span>
-            </li>
-            <li>
-              <input type="checkbox" value="2" className={s.checkBox} />
-              <span>2</span>
-            </li>
-            <li>
-              <input type="checkbox" value="3" className={s.checkBox} />
-              <span>3</span>
-            </li>
+            {checkBoxVariants.map((value) => (
+              <li key={value}>
+                <input
+                  type="checkbox"
+                  value={value}
+                  {...register("checkBox")}
+                  className={s.checkBox}
+                />
+                <span>{value}</span>
+              </li>
+            ))}
           </ul>
+          {errors.checkBox?.message && (
+            <span className={s.error_message}>{errors.checkBox?.message}</span>
+          )}
         </div>
         <div className={s.checkBoxes}>
           <h1 className={s.header}>Radio group</h1>
           <ul className={s.checkBoxList}>
-            <li>
-              <input type="checkbox" value="1" className={s.checkBoxRadio} />
-              <span>1</span>
-            </li>
-            <li>
-              <input type="checkbox" value="2" className={s.checkBoxRadio} />
-              <span>2</span>
-            </li>
-            <li>
-              <input type="checkbox" value="3" className={s.checkBoxRadio} />
-              <span>3</span>
-            </li>
+            {radioVariants.map((value) => (
+              <li key={value}>
+                <input
+                  type="radio"
+                  value={value}
+                  {...register("radio")}
+                  className={s.checkBoxRadio}
+                />
+                <span>{value}</span>
+              </li>
+            ))}
           </ul>
+          {errors.radio?.message && (
+            <span className={s.error_message}>{errors.radio?.message}</span>
+          )}
         </div>
       </div>
+      <ButtonsNavigation disabled={!formState.isValid} />
     </form>
   );
 };

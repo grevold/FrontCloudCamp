@@ -15,6 +15,11 @@ body {
 button {
   border: none;
   cursor: pointer;
+  background-color: transparent;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
 }
 
 :root {
