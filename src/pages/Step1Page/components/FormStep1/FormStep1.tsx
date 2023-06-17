@@ -1,6 +1,5 @@
 import { useFormStep1 } from "./useFormStep1";
 import { ButtonsNavigation } from "../ButtonsNavigation/ButtonsNavigation";
-import { Controller } from "react-hook-form";
 import { Sex } from "../../../../types";
 
 import s from "./FormStep1.module.css";
