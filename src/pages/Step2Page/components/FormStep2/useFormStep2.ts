@@ -12,7 +12,6 @@ export interface FormValues {
 
 const { advantages, checkBox, radio } = texts.Errors.Step2;
 
-// .matches(/^[0-9]+$/, "Must be only digits")
 const formSchema = object().shape({
   advantages: string().required(advantages.required),
   checkBox: string().required(checkBox.required),

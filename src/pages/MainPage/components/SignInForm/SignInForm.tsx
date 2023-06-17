@@ -1,6 +1,7 @@
 import { useSignInForm } from "./useSignInForm";
 import { StyledLink } from "../../../../components/StyledLink/StyledLink";
 import { RoutePath } from "../../../../types";
+import { withHookFormMask } from "use-mask-input";
 
 import s from "./SignInForm.module.css";
 
@@ -19,10 +20,13 @@ export const SignInForm: React.FC<Props> = ({ onSubmit, onClick }) => {
         <div className={s.item}>
           <span className={s.title}>Номер телефона</span>
           <input
-            {...register("phone")}
+            {...withHookFormMask(register("phone"), [
+              "+7 999 999-99-99",
+              "+7 999 999-99-99",
+            ])}
             type="tel"
             className={s.input}
-            placeholder="+7 993 545 94 30"
+            placeholder="+7 999 999-99-99"
           />
           {errors.phone?.message && (
             <div className={s.error_message}>{errors.phone?.message}</div>
@@ -41,7 +45,9 @@ export const SignInForm: React.FC<Props> = ({ onSubmit, onClick }) => {
           )}
         </div>
       </div>
-      <StyledLink to={RoutePath.Step1Page}>Начать</StyledLink>
+      <StyledLink to={RoutePath.Step1Page} disabled={!formState.isValid}>
+        Начать
+      </StyledLink>
     </form>
   );
 };

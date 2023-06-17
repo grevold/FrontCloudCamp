@@ -9,8 +9,8 @@ export function MainPage() {
     <Container className={s.root}>
       <Header />
       <SignInForm
-        onClick={() => console.log("Hello, world!")}
-        onSubmit={() => console.log("Hello, world!")}
+        onClick={() => console.log("Click!")}
+        onSubmit={console.log}
       />
     </Container>
   );

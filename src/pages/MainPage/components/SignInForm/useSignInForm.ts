@@ -12,8 +12,10 @@ export interface FormValues {
 const { email, phone } = texts.Errors.SignIn;
 
 const formSchema = object().shape({
-  email: string().required(email.required).email(email.email),
-  phone: string().required(phone.required).min(6, phone.min),
+  phone: string()
+    .required(phone.required)
+    .matches(/^\+7 \d{3} \d{3}-\d{2}-\d{2}$/, phone.valid),
+  email: string().required(email.required).email(email.valid),
 });
 
 export const useSignInForm = (

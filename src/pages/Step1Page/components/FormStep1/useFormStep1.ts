@@ -13,7 +13,6 @@ export interface FormValues {
 
 const { nickname, name, sername, sex } = texts.Errors.Step1;
 
-// .matches(/^[0-9]+$/, "Must be only digits")
 const formSchema = object().shape({
   nickname: string().required(nickname.required),
   name: string().required(name.required),
