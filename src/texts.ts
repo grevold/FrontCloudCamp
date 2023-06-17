@@ -3,11 +3,11 @@ export const texts = {
     SignIn: {
       email: {
         required: "введите email",
-        email: "такого логина не существует",
+        valid: "невалидный email",
       },
       phone: {
         required: "введите номер телефона",
-        min: "минимальная длина пароля должна быть 6 символов",
+        valid: "невалидный номер телефона",
       },
     },
     Step1: {

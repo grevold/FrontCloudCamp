@@ -6,7 +6,6 @@
   align-items: center;
   font-weight: 400;
   font-size: 14px;
-  /* width: 79px; */
 }
 
 .root_primary {
@@ -19,4 +18,9 @@
   composes: root;
   border: 1.5px solid var(--color-blue);
   color: var(--color-blue);
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
 }
