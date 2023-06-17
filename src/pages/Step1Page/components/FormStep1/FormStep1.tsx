@@ -71,17 +71,11 @@ export const FormStep1: React.FC<Props> = ({ onSubmit, onClick }) => {
           <div className={s.item}>
             <span className={s.title}>Sex</span>
             <div className={s.input_area}>
-              <Controller
-                name="sex"
-                control={control}
-                render={({ field: { onChange } }) => (
-                  <select className={s.select} onChange={onChange}>
-                    {Object.values(Sex).map((value) => (
-                      <option key={value}>{value}</option>
-                    ))}
-                  </select>
-                )}
-              />
+              <select className={s.select} {...register("sex")}>
+                {Object.values(Sex).map((value) => (
+                  <option key={value}>{value}</option>
+                ))}
+              </select>
               {errors.sex && (
                 <div className={s.error_message}>{errors.sex?.message}</div>
               )}
