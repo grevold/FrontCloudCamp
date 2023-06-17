@@ -10,7 +10,7 @@ export interface FormValues {
 
 const formSchema = object().shape({
   about: string()
-    .required("Заполните поле ")
+    .required("Заполните поле")
     .max(200, "Превышено количество символов"),
 });
 

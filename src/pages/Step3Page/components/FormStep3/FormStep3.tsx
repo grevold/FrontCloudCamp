@@ -1,7 +1,7 @@
+import { ButtonsNavigation } from "../ButtonsNavigation/ButtonsNavigation";
 import { useFormStep3 } from "./useFormStep3";
 
 import s from "./FormStep3.module.css";
-import { ButtonsNavigation } from "../ButtonsNavigation/ButtonsNavigation";
 
 export const FormStep3 = () => {
   const { count, handleChange, formState, register } = useFormStep3();
