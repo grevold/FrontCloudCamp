@@ -1,1 +1,2 @@
 Хостинг: [https://grevold.github.io/FrontCloudCamp/](https://grevold.github.io/FrontCloudCamp/)
+Ссылка на Figma-макет: [https://www.figma.com/file/rzIp6awR6dGFVrcxcCEwzD/FrontCloudCamp](https://www.figma.com/file/rzIp6awR6dGFVrcxcCEwzD/FrontCloudCamp)
