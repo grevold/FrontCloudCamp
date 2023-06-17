@@ -8,6 +8,9 @@
   font-size: 14px;
   line-height: 20px;
 }
+.container {
+  position: relative;
+}
 
 .textarea {
   border: 1px solid rgba(0, 0, 0, 0.16);
@@ -17,6 +20,12 @@
   resize: vertical;
   margin-top: 8px;
 }
+.scoreSymbols {
+  position: absolute;
+  z-index: 2;
+  right: 10px;
+  bottom: 10px;
+}
 
 .tip {
   color: rgba(0, 0, 0, 0.48);
@@ -25,4 +34,7 @@
   font-size: 12px;
   line-height: 16px;
   margin-top: 8px;
+}
+.error_message {
+  color: red;
 }

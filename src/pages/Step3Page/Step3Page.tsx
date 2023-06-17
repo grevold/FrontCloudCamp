@@ -10,7 +10,6 @@ export function Step3Page() {
       <FormContainer>
         <ProgressBar currentValue={2} maxValue={3} />
         <FormStep3 />
-        <ButtonsNavigation />
       </FormContainer>
     </Container>
   );
