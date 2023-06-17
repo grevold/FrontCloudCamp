@@ -17,6 +17,10 @@ button {
   cursor: pointer;
 }
 
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
 :root {
   /* Отступы */
   --gap-xs: 4px;
