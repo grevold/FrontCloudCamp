@@ -1,8 +1,9 @@
 import { useFormStep1 } from "./useFormStep1";
-import { StyledLink } from "../../../../components/StyledLink/StyledLink";
-import { RoutePath } from "../../../../types";
+import { ButtonsNavigation } from "../ButtonsNavigation/ButtonsNavigation";
+import { Controller } from "react-hook-form";
 
 import s from "./FormStep1.module.css";
+import { Sex } from "../../../../types";
 
 interface Props {
   onSubmit: (
@@ -15,68 +16,80 @@ interface Props {
 }
 
 export const FormStep1: React.FC<Props> = ({ onSubmit, onClick }) => {
-  const { submit, register, formState } = useFormStep1(onSubmit);
+  const { submit, register, formState, control } = useFormStep1(onSubmit);
   const { errors } = formState;
 
   return (
-    <form onSubmit={submit} onClick={onClick} className={s.root}>
-      <div className={s.container}>
-        <div className={s.item}>
-          <span className={s.title}>Nickname</span>
-          <div className={s.input_area}>
-            <input
-              {...register("nickname")}
-              className={s.input}
-              placeholder="Placeholder"
-            />
-            {errors.nickname?.message && (
-              <div className={s.error_message}>{errors.nickname?.message}</div>
-            )}
-          </div>
+    <>
+      <form onSubmit={submit} onClick={onClick} className={s.root}>
+        <div className={s.container}>
+          <div className={s.item}>
+            <span className={s.title}>Nickname</span>
+            <div className={s.input_area}>
+              <input
+                {...register("nickname")}
+                className={s.input}
+                placeholder="Placeholder"
+              />
+              {errors.nickname?.message && (
+                <div className={s.error_message}>
+                  {errors.nickname?.message}
+                </div>
+              )}
+            </div>
 
-          <span className={s.tip}>Tip</span>
-        </div>
-        <div className={s.item}>
-          <span className={s.title}>Name</span>
-          <div className={s.input_area}>
-            <input
-              {...register("name")}
-              className={s.input}
-              placeholder="Placeholder"
-            />
-            {errors.name?.message && (
-              <div className={s.error_message}>{errors.name?.message}</div>
-            )}
+            <span className={s.tip}>Tip</span>
           </div>
-          <span className={s.tip}>Tip</span>
-        </div>
-        <div className={s.item}>
-          <span className={s.title}>Sername</span>
-          <div className={s.input_area}>
-            <input
-              {...register("sername")}
-              className={s.input}
-              placeholder="Placeholder"
-            />
-            {errors.sername?.message && (
-              <div className={s.error_message}>{errors.sername?.message}</div>
-            )}
+          <div className={s.item}>
+            <span className={s.title}>Name</span>
+            <div className={s.input_area}>
+              <input
+                {...register("name")}
+                className={s.input}
+                placeholder="Placeholder"
+              />
+              {errors.name?.message && (
+                <div className={s.error_message}>{errors.name?.message}</div>
+              )}
+            </div>
+            <span className={s.tip}>Tip</span>
           </div>
-          <span className={s.tip}>Tip</span>
-        </div>
-        <div className={s.item}>
-          <span className={s.title}>Sex</span>
-          <div className={s.input_area}>
-            <select {...register("sername")} className={s.select}>
-              <option>man</option>
-              <option>woman</option>
-            </select>
-            {errors.sex?.message && (
-              <div className={s.error_message}>{errors.sex?.message}</div>
-            )}
+          <div className={s.item}>
+            <span className={s.title}>Sername</span>
+            <div className={s.input_area}>
+              <input
+                {...register("sername")}
+                className={s.input}
+                placeholder="Placeholder"
+              />
+              {errors.sername?.message && (
+                <div className={s.error_message}>{errors.sername?.message}</div>
+              )}
+            </div>
+            <span className={s.tip}>Tip</span>
+          </div>
+          <div className={s.item}>
+            <span className={s.title}>Sex</span>
+            <div className={s.input_area}>
+              <Controller
+                name="sex"
+                control={control}
+                render={({ field: { onChange } }) => (
+                  <select className={s.select} onChange={onChange}>
+                    {Object.values(Sex).map((value) => (
+                      <option key={value}>{value}</option>
+                    ))}
+                  </select>
+                )}
+              />
+              {errors.sex && (
+                <div className={s.error_message}>{errors.sex?.message}</div>
+              )}
+            </div>
           </div>
         </div>
-      </div>
-    </form>
+      </form>
+      <ButtonsNavigation disabled={!formState.isValid} />
+    </>
   );
 };

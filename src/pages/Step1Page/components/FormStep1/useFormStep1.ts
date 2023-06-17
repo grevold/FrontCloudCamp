@@ -2,22 +2,37 @@ import { useForm } from "react-hook-form";
 import { object, string } from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { texts } from "../../../../texts";
+import { Sex } from "../../../../types";
 
 // Значения, которые мы будем доставать из формы.
 export interface FormValues {
   nickname: string;
   name: string;
   sername: string;
-  sex: string;
+  sex: Sex.Man | Sex.Woman;
 }
 
 const { nickname, name, sername, sex } = texts.Errors.Step1;
 
 const formSchema = object().shape({
-  nickname: string().required(nickname.required),
-  name: string().required(name.required),
-  sername: string().required(sername.required),
-  sex: string().required(sex.required),
+  nickname: string()
+    .required(nickname.required)
+    .matches(
+      /^[a-zA-Zа-яА-ЯёЁ0-9]+$/,
+      "Nickname может содержать только буквы и цифры"
+    )
+    .max(30, "Максимальная длина Nickname - 30 символов"),
+  name: string()
+    .required(name.required)
+    .matches(/^[a-zA-Zа-яА-ЯёЁ]+$/, "Name может содержать только буквы")
+    .max(50, "Максимальная длина Name - 50 символов"),
+  sername: string()
+    .required(sername.required)
+    .matches(/^[a-zA-Zа-яА-ЯёЁ]+$/, "Sername может содержать только буквы")
+    .max(50, "Максимальная длина Sername - 50 символов"),
+  sex: string()
+    .oneOf([Sex.Man, Sex.Woman], "Неверно указан пол")
+    .required("Нужно указать пол"),
 });
 
 export const useFormStep1 = (
@@ -28,7 +43,7 @@ export const useFormStep1 = (
     sex: string
   ) => void
 ) => {
-  const { register, handleSubmit, formState } = useForm<FormValues>({
+  const { register, handleSubmit, formState, control } = useForm<FormValues>({
     mode: "onTouched",
     // @ts-ignore
     resolver: yupResolver(formSchema),
@@ -38,5 +53,5 @@ export const useFormStep1 = (
     onSubmit(nickname, name, sername, sex)
   );
 
-  return { submit, register, formState };
+  return { submit, register, formState, control };
 };
