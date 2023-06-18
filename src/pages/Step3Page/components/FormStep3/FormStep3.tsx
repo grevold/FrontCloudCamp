@@ -21,6 +21,7 @@ export const FormStep3: React.FC<Props> = ({ onSubmit }) => {
           {...register("about")}
           onChange={handleChange}
           className={s.textarea}
+          placeholder="Placeholder"
         />
         <div className={s.scoreSymbols}>{count}/200</div>
       </div>
@@ -28,7 +29,7 @@ export const FormStep3: React.FC<Props> = ({ onSubmit }) => {
       {errors.about?.message && (
         <div className={s.error_message}>{errors.about?.message}</div>
       )}
-      <ButtonsNavigation />
+      <ButtonsNavigation className={s.buttons} />
     </form>
   );
 };

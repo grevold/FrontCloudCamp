@@ -44,7 +44,9 @@ export const SignInForm: React.FC<Props> = ({ onSubmit }) => {
           )}
         </div>
       </div>
-      <StyledButton type="submit">Начать</StyledButton>
+      <StyledButton type="submit" className={s.button}>
+        Начать
+      </StyledButton>
     </form>
   );
 };

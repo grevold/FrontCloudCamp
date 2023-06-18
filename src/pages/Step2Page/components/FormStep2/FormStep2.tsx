@@ -20,46 +20,52 @@ export const FormStep2: React.FC<Props> = ({ onSubmit }) => {
     <form onSubmit={handleSubmit} className={s.root}>
       <div className={s.container}>
         <AdvantagesForm register={register} formState={formState} />
-        <div className={s.checkBoxes}>
+        <div>
           <h1 className={s.header}>Checkbox group</h1>
-          <ul className={s.checkBoxList}>
-            {checkBoxVariants.map((value) => (
-              <li key={value}>
-                <input
-                  type="checkbox"
-                  value={value}
-                  {...register("checkBox")}
-                  className={s.checkBox}
-                />
-                <span>{value}</span>
-              </li>
-            ))}
-          </ul>
-          {errors.checkBox?.message && (
-            <span className={s.error_message}>{errors.checkBox?.message}</span>
-          )}
+          <div className={s.checkBoxes}>
+            <ul className={s.checkBoxList}>
+              {checkBoxVariants.map((value) => (
+                <li key={value}>
+                  <input
+                    type="checkbox"
+                    value={value}
+                    {...register("checkBox")}
+                    className={s.checkBox}
+                  />
+                  <span className={s.checkBoxValue}>{value}</span>
+                </li>
+              ))}
+            </ul>
+            {errors.checkBox?.message && (
+              <span className={s.error_message}>
+                {errors.checkBox?.message}
+              </span>
+            )}
+          </div>
         </div>
-        <div className={s.checkBoxes}>
+        <div>
           <h1 className={s.header}>Radio group</h1>
-          <ul className={s.checkBoxList}>
-            {radioVariants.map((value) => (
-              <li key={value}>
-                <input
-                  type="radio"
-                  value={value}
-                  {...register("radio")}
-                  className={s.checkBoxRadio}
-                />
-                <span>{value}</span>
-              </li>
-            ))}
-          </ul>
-          {errors.radio?.message && (
-            <span className={s.error_message}>{errors.radio?.message}</span>
-          )}
+          <div className={s.checkBoxes}>
+            <ul className={s.checkBoxList}>
+              {radioVariants.map((value) => (
+                <li key={value}>
+                  <input
+                    type="radio"
+                    value={value}
+                    {...register("radio")}
+                    className={s.checkBoxRadio}
+                  />
+                  <span className={s.checkBoxValue}>{value}</span>
+                </li>
+              ))}
+            </ul>
+            {errors.radio?.message && (
+              <span className={s.error_message}>{errors.radio?.message}</span>
+            )}
+          </div>
         </div>
       </div>
-      <ButtonsNavigation />
+      <ButtonsNavigation className={s.buttons} />
     </form>
   );
 };

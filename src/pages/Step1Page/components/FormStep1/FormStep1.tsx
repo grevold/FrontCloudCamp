@@ -3,6 +3,7 @@ import { ButtonsNavigation } from "../ButtonsNavigation/ButtonsNavigation";
 import { FormStep1Values, Sex } from "../../../../types";
 
 import s from "./FormStep1.module.css";
+import { ChevronDown } from "../../../../icons/ChevronDown";
 
 interface Props {
   onSubmit: (formValues: FormStep1Values) => void;
@@ -61,18 +62,21 @@ export const FormStep1: React.FC<Props> = ({ onSubmit }) => {
         <div className={s.item}>
           <span className={s.title}>Sex</span>
           <div className={s.input_area}>
-            <select className={s.select} {...register("sex")}>
-              {Object.values(Sex).map((value) => (
-                <option key={value}>{value}</option>
-              ))}
-            </select>
+            <div className={s.select_wrapper}>
+              <select className={s.select} {...register("sex")}>
+                {Object.values(Sex).map((value) => (
+                  <option className={s.sex}>{value}</option>
+                ))}
+              </select>
+              <ChevronDown className={s.chevronDown} />
+            </div>
             {errors.sex && (
               <div className={s.error_message}>{errors.sex?.message}</div>
             )}
           </div>
         </div>
       </div>
-      <ButtonsNavigation />
+      <ButtonsNavigation className={s.buttons} />
     </form>
   );
 };

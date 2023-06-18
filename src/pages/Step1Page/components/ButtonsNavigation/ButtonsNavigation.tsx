@@ -1,16 +1,17 @@
 import { StyledButton } from "../../../../components/StyledButton/StyledButton";
 import { StyledLink } from "../../../../components/StyledLink/StyledLink";
 import { FormStep1Values, RoutePath } from "../../../../types";
+import cn from "classnames";
 
 import s from "./ButtonsNavigation.module.css";
 
 interface Props {
-  disabled?: boolean;
+  className?: string;
 }
 
-export const ButtonsNavigation = ({ disabled }: Props) => {
+export const ButtonsNavigation = ({ className }: Props) => {
   return (
-    <div className={s.root}>
+    <div className={cn(s.root, className)}>
       <StyledLink to={RoutePath.MainPage} mod={"secondary"}>
         Назад
       </StyledLink>

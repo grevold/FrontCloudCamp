@@ -35,16 +35,33 @@ select::-ms-expand {
   cursor: pointer;
 }
 .error_message {
-  color: red;
+  color: rgb(236, 61, 61);
+  font-size: 14px;
+  margin-left: 10px;
 }
 
 .addAdvantages:hover {
   background-color: #5558fa;
   color: white;
 }
+.checkBoxValue {
+  margin-left: 8px;
+}
+.buttons {
+  margin-top: 45px;
+}
+.checkBoxes {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
 .checkBoxList {
   list-style: none;
+}
+.checkBoxList li {
+  display: flex;
+  align-items: center;
 }
 .checkBox {
   width: 16px;
@@ -63,6 +80,11 @@ select::-ms-expand {
 }
 .checkBoxRadio:checked {
   background-color: #5558fa;
+}
+.header {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 2px;
 }
 
 @media (min-width: 600px) {

@@ -1,5 +1,6 @@
 .root {
   height: 43px;
+  margin-top: 2px;
 }
 
 .row {
@@ -24,7 +25,7 @@
   position: relative;
   top: -4px;
   z-index: 1;
-  text-align: center;
+  text-align: start;
 }
 
 .point {
@@ -32,7 +33,7 @@
   width: 16px;
   border-radius: 50%;
   background: #a6a6a6;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
 }
 
 .activePoint {
@@ -48,4 +49,8 @@
   font-weight: 400;
   font-size: 14px;
   color: #666666;
+}
+.number_active {
+  composes: number;
+  color: #5558fa;
 }

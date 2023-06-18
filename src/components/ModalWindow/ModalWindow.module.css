@@ -8,6 +8,7 @@
   justify-content: center;
   align-items: center;
   position: fixed;
+  z-index: 1;
 }
 
 .container {
@@ -22,4 +23,5 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  z-index: 3;
 }
