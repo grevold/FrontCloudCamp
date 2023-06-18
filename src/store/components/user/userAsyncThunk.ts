@@ -4,13 +4,10 @@ import axios from "axios";
 
 export const userAsyncThunk = createAsyncThunk<SubmitResponse, UserState>(
   "user/auth",
-  async function (userState, thunkAPI) {
-    const {
-      signInFormValues,
-      formStep1Values,
-      formStep2Values,
-      formStep3Values,
-    } = userState;
+  async function (
+    { signInFormValues, formStep1Values, formStep2Values, formStep3Values },
+    thunkAPI
+  ) {
     if (!signInFormValues) {
       return thunkAPI.rejectWithValue(
         "Вы ввели неверный номер телефона или email"
