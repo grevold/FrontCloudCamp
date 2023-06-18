@@ -1,7 +1,8 @@
 import { FolderIcon } from "../../../../icons/FolderIcon";
+
 import s from "./Header.module.css";
 
-export function Header() {
+export const Header = () => {
   return (
     <div className={s.root}>
       <div className={s.container}>
@@ -27,4 +28,4 @@ export function Header() {
       <hr className={s.hr} />
     </div>
   );
-}
+};

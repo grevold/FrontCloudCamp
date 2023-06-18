@@ -3,13 +3,18 @@ import { useFormStep3 } from "./useFormStep3";
 
 import s from "./FormStep3.module.css";
 
-export const FormStep3 = () => {
-  const { count, handleChange, formState, register } = useFormStep3();
+interface Props {
+  onSubmit: (about: string) => void;
+}
+
+export const FormStep3: React.FC<Props> = ({ onSubmit }) => {
+  const { count, handleChange, formState, register, submit } =
+    useFormStep3(onSubmit);
   const { errors } = formState;
 
   return (
     <>
-      <form className={s.form}>
+      <form onSubmit={submit} className={s.form}>
         <label className={s.label}>About</label>
         <div className={s.container}>
           <textarea

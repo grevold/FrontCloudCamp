@@ -7,15 +7,14 @@ import s from "./SignInForm.module.css";
 
 interface Props {
   onSubmit: (email: string, phone: string) => void;
-  onClick: () => void;
 }
 
-export const SignInForm: React.FC<Props> = ({ onSubmit, onClick }) => {
+export const SignInForm: React.FC<Props> = ({ onSubmit }) => {
   const { submit, register, formState } = useSignInForm(onSubmit);
   const { errors } = formState;
 
   return (
-    <form onSubmit={submit} onClick={onClick} className={s.root}>
+    <form onSubmit={submit} className={s.root}>
       <div className={s.container}>
         <div className={s.item}>
           <span className={s.title}>Номер телефона</span>
