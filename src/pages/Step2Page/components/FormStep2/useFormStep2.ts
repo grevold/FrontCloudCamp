@@ -3,13 +3,7 @@ import { array, object, string } from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { texts } from "../../../../texts";
 import { useState } from "react";
-
-// Значения, которые мы будем доставать из формы.
-export interface FormValues {
-  advantages: string[];
-  checkBox: string;
-  radio: string;
-}
+import { FormStep2Values } from "../../../../types";
 
 const { advantages, checkBox, radio } = texts.Errors.Step2;
 
@@ -20,9 +14,9 @@ const formSchema = object().shape({
 });
 
 export const useFormStep2 = (
-  onSubmit: (advantages: string[], checkBox: string, radio: string) => void
+  onSubmit: (formValues: FormStep2Values) => void
 ) => {
-  const { register, handleSubmit, formState } = useForm<FormValues>({
+  const { register, handleSubmit, formState } = useForm<FormStep2Values>({
     mode: "onTouched",
     // @ts-ignore
     resolver: yupResolver(formSchema),
@@ -46,12 +40,8 @@ export const useFormStep2 = (
       removeElementFromArrayByIndex(advantages, index)
     );
 
-  const submit = handleSubmit(({ advantages, checkBox, radio }: FormValues) =>
-    onSubmit(advantages, checkBox, radio)
-  );
-
   return {
-    submit,
+    handleSubmit: handleSubmit(onSubmit),
     register,
     formState,
     advantages,

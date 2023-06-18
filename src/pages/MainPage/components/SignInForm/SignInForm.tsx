@@ -1,20 +1,20 @@
 import { useSignInForm } from "./useSignInForm";
 import { StyledLink } from "../../../../components/StyledLink/StyledLink";
-import { RoutePath } from "../../../../types";
+import { RoutePath, SignInFormValues } from "../../../../types";
 import { withHookFormMask } from "use-mask-input";
 
 import s from "./SignInForm.module.css";
 
 interface Props {
-  onSubmit: (email: string, phone: string) => void;
+  onSubmit: (formValues: SignInFormValues) => void;
 }
 
 export const SignInForm: React.FC<Props> = ({ onSubmit }) => {
-  const { submit, register, formState } = useSignInForm(onSubmit);
+  const { handleSubmit, register, formState } = useSignInForm(onSubmit);
   const { errors } = formState;
 
   return (
-    <form onSubmit={submit} className={s.root}>
+    <form onSubmit={handleSubmit} className={s.root}>
       <div className={s.container}>
         <div className={s.item}>
           <span className={s.title}>Номер телефона</span>
@@ -47,6 +47,7 @@ export const SignInForm: React.FC<Props> = ({ onSubmit }) => {
       <StyledLink to={RoutePath.Step1Page} disabled={!formState.isValid}>
         Начать
       </StyledLink>
+      <button type="submit">Submit</button>
     </form>
   );
 };

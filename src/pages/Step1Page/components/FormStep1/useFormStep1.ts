@@ -2,15 +2,7 @@ import { useForm } from "react-hook-form";
 import { object, string } from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { texts } from "../../../../texts";
-import { Sex } from "../../../../types";
-
-// Значения, которые мы будем доставать из формы.
-export interface FormValues {
-  nickname: string;
-  name: string;
-  sername: string;
-  sex: Sex.Man | Sex.Woman;
-}
+import { FormStep1Values, Sex } from "../../../../types";
 
 const { nickname, name, sername, sex } = texts.Errors.Step1;
 
@@ -36,22 +28,14 @@ const formSchema = object().shape({
 });
 
 export const useFormStep1 = (
-  onSubmit: (
-    nickname: string,
-    name: string,
-    sername: string,
-    sex: string
-  ) => void
+  onSubmit: (formValues: FormStep1Values) => void
 ) => {
-  const { register, handleSubmit, formState, control } = useForm<FormValues>({
-    mode: "onTouched",
-    // @ts-ignore
-    resolver: yupResolver(formSchema),
-  });
+  const { register, handleSubmit, formState, control } =
+    useForm<FormStep1Values>({
+      mode: "onTouched",
+      // @ts-ignore
+      resolver: yupResolver(formSchema),
+    });
 
-  const submit = handleSubmit(({ nickname, name, sername, sex }: FormValues) =>
-    onSubmit(nickname, name, sername, sex)
-  );
-
-  return { submit, register, formState, control };
+  return { register, formState, control, handleSubmit: handleSubmit(onSubmit) };
 };

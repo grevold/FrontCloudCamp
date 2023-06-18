@@ -1,11 +1,12 @@
 import { useFormStep2 } from "./useFormStep2";
 import { TrashIcon } from "../../../../icons/TrashIcon";
 import { ButtonsNavigation } from "../ButtonsNavigation/ButtonsNavigation";
+import { FormStep2Values } from "../../../../types";
 
 import s from "./FormStep2.module.css";
 
 interface Props {
-  onSubmit: (advantages: string[], checkBox: string, radio: string) => void;
+  onSubmit: (formValues: FormStep2Values) => void;
 }
 
 const checkBoxVariants = [1, 2, 3];
@@ -13,7 +14,7 @@ const radioVariants = [1, 2, 3];
 
 export const FormStep2: React.FC<Props> = ({ onSubmit }) => {
   const {
-    submit,
+    handleSubmit,
     register,
     formState,
     advantages,
@@ -49,7 +50,7 @@ export const FormStep2: React.FC<Props> = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={submit} className={s.root}>
+    <form onSubmit={handleSubmit} className={s.root}>
       <div className={s.container}>
         <div className={s.advantages}>
           <h1 className={s.header}>Advantages</h1>

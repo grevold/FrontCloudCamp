@@ -2,12 +2,7 @@ import { useForm } from "react-hook-form";
 import { object, string } from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { texts } from "../../../../texts";
-
-// Значения, которые мы будем доставать из формы.
-export interface FormValues {
-  email: string;
-  phone: string;
-}
+import { SignInFormValues } from "../../../../types";
 
 const { email, phone } = texts.Errors.SignIn;
 
@@ -19,17 +14,13 @@ const formSchema = object().shape({
 });
 
 export const useSignInForm = (
-  onSubmit: (email: string, phone: string) => void
+  onSubmit: (formValues: SignInFormValues) => void
 ) => {
-  const { register, handleSubmit, formState } = useForm<FormValues>({
+  const { register, handleSubmit, formState } = useForm<SignInFormValues>({
     mode: "onTouched",
     // @ts-ignore
     resolver: yupResolver(formSchema),
   });
 
-  const submit = handleSubmit(({ email, phone }: FormValues) =>
-    onSubmit(email, phone)
-  );
-
-  return { submit, register, formState };
+  return { register, formState, handleSubmit: handleSubmit(onSubmit) };
 };
