@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/FrontCloudCamp/static/css/main.3cf4e0f5.css",
-    "main.js": "/FrontCloudCamp/static/js/main.602da67b.js",
+    "main.css": "/FrontCloudCamp/static/css/main.6ac5ab61.css",
+    "main.js": "/FrontCloudCamp/static/js/main.9ba995b6.js",
     "static/js/787.0217c058.chunk.js": "/FrontCloudCamp/static/js/787.0217c058.chunk.js",
     "static/media/SB_Sans_Interface_Regular.otf": "/FrontCloudCamp/static/media/SB_Sans_Interface_Regular.fa886c45baa161bc14a1.otf",
     "static/media/SB_Sans_Interface_Bold.otf": "/FrontCloudCamp/static/media/SB_Sans_Interface_Bold.4c60f8318fa09c1a367e.otf",
@@ -14,12 +14,12 @@
     "static/media/SB_Sans_Interface_Regular.woff2": "/FrontCloudCamp/static/media/SB_Sans_Interface_Regular.e077dbf19683a46d9c45.woff2",
     "static/media/SB_Sans_Interface_Bold.woff2": "/FrontCloudCamp/static/media/SB_Sans_Interface_Bold.c893756fba2a57592494.woff2",
     "index.html": "/FrontCloudCamp/index.html",
-    "main.3cf4e0f5.css.map": "/FrontCloudCamp/static/css/main.3cf4e0f5.css.map",
-    "main.602da67b.js.map": "/FrontCloudCamp/static/js/main.602da67b.js.map",
+    "main.6ac5ab61.css.map": "/FrontCloudCamp/static/css/main.6ac5ab61.css.map",
+    "main.9ba995b6.js.map": "/FrontCloudCamp/static/js/main.9ba995b6.js.map",
     "787.0217c058.chunk.js.map": "/FrontCloudCamp/static/js/787.0217c058.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3cf4e0f5.css",
-    "static/js/main.602da67b.js"
+    "static/css/main.6ac5ab61.css",
+    "static/js/main.9ba995b6.js"
   ]
 }
