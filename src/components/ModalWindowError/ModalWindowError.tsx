@@ -7,9 +7,10 @@ import s from "./ModalWindowError.module.css";
 
 interface Props {
   onClose: () => void;
+  errorMessage?: string;
 }
 
-export function ModalWindowError({ onClose }: Props) {
+export function ModalWindowError({ onClose, errorMessage }: Props) {
   return (
     <ModalWindow onClose={onClose}>
       <>
@@ -18,6 +19,7 @@ export function ModalWindowError({ onClose }: Props) {
           <CrossCloseIcon />
         </div>
         <ErrorIcon className={s.errorIcon} />
+        <div className={s.error}>{errorMessage}</div>
         <div className={s.buttonWrap}>
           <StyledButton onClick={onClose}>Закрыть</StyledButton>
         </div>

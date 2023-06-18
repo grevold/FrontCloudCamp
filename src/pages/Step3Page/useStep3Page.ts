@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import { FormStep3Values } from "../../types";
-import { userStoreActions } from "../../store/components/user/userSlice";
 import { userAsyncThunk } from "../../store/components/user/userAsyncThunk";
+import { userStoreActions } from "../../store/components/user/userSlice";
 
 export enum Status {
   Init = "Init",
@@ -43,7 +43,7 @@ export const useStep3Page = () => {
   const handleSubmit = (formValues: FormStep3Values) => {
     setState({ status: Status.Loading });
     dispatch(userStoreActions.addStep3InFormValues(formValues));
-    dispatch(userAsyncThunk(userStore))
+    dispatch(userAsyncThunk({ ...userStore, formStep3Values: formValues }))
       .unwrap()
       .then(handleSubmitSuccess, handleSubmitError);
   };
