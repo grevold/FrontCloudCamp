@@ -1,3 +1,4 @@
+import { StyledButton } from "../../../../components/StyledButton/StyledButton";
 import { StyledLink } from "../../../../components/StyledLink/StyledLink";
 import { RoutePath } from "../../../../types";
 
@@ -13,9 +14,7 @@ export const ButtonsNavigation = ({ disabled }: Props) => {
       <StyledLink to={RoutePath.Step1Page} mod={"secondary"}>
         Назад
       </StyledLink>
-      <StyledLink to={RoutePath.Step3Page} disabled={disabled}>
-        Далее
-      </StyledLink>
+      <StyledButton type="submit">Далее</StyledButton>
     </div>
   );
 };

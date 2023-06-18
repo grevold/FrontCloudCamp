@@ -100,7 +100,7 @@ export const FormStep2: React.FC<Props> = ({ onSubmit }) => {
           )}
         </div>
       </div>
-      <ButtonsNavigation disabled={!formState.isValid} />
+      <ButtonsNavigation />
     </form>
   );
 };

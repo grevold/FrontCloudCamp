@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { object, string } from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormStep3Values } from "../../../../types";
+import { useAppSelector } from "../../../../store/store";
 
 const formSchema = object().shape({
   about: string()
@@ -11,6 +12,7 @@ const formSchema = object().shape({
 });
 
 export function useFormStep3(onSubmit: (formValues: FormStep3Values) => void) {
+  const userStore = useAppSelector((state) => state.userStore);
   const [count, setCount] = useState<number>(0);
 
   function getStringLengthWithOutSpaces(str: string): number {
@@ -29,6 +31,7 @@ export function useFormStep3(onSubmit: (formValues: FormStep3Values) => void) {
     mode: "onTouched",
     // @ts-ignore
     resolver: yupResolver(formSchema),
+    defaultValues: userStore.formStep3Values,
   });
 
   return {

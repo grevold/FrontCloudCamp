@@ -3,6 +3,7 @@ import { object, string } from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { texts } from "../../../../texts";
 import { FormStep1Values, Sex } from "../../../../types";
+import { useAppSelector } from "../../../../store/store";
 
 const { nickname, name, sername, sex } = texts.Errors.Step1;
 
@@ -30,11 +31,13 @@ const formSchema = object().shape({
 export const useFormStep1 = (
   onSubmit: (formValues: FormStep1Values) => void
 ) => {
+  const userStore = useAppSelector((state) => state.userStore);
   const { register, handleSubmit, formState, control } =
     useForm<FormStep1Values>({
       mode: "onTouched",
       // @ts-ignore
       resolver: yupResolver(formSchema),
+      defaultValues: userStore.formStep1Values,
     });
 
   return { register, formState, control, handleSubmit: handleSubmit(onSubmit) };
