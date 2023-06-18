@@ -10,7 +10,9 @@ const { advantages, checkBox, radio } = texts.Errors.Step2;
 
 const formSchema = object().shape({
   advantages: array().of(string().min(1, "advantage не должен быть пустым")),
-  checkBox: array().min(1, "Нужно выбрать хотя бы один checkBox-элемент"),
+  checkBox: array()
+    .min(1, "Нужно выбрать хотя бы один checkBox-элемент")
+    .required("Нужно выбрать хотя бы один checkBox-элемент"),
   radio: string().required("Нужно выбрать хотя бы один radio-элемент"),
 });
 
@@ -22,7 +24,10 @@ export const useFormStep2 = (
     mode: "onTouched",
     // @ts-ignore
     resolver: yupResolver(formSchema),
-    defaultValues: userStore.formStep2Values,
+    defaultValues: {
+      checkBox: [],
+      ...userStore.formStep2Values,
+    },
   });
   const [advantages, setAdvantages] = useState<string[]>(
     userStore.formStep2Values ? userStore.formStep2Values.advantages : []
