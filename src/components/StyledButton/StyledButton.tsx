@@ -7,6 +7,7 @@ interface Props {
   onClick?: () => void;
   className?: string;
   type?: "submit";
+  mod?: string;
 }
 
 export const StyledButton: FC<PropsWithChildren<Props>> = ({
@@ -14,9 +15,14 @@ export const StyledButton: FC<PropsWithChildren<Props>> = ({
   children,
   className,
   type,
+  mod = "primary",
 }) => {
   return (
-    <button className={cn(s.root, className)} onClick={onClick} type={type}>
+    <button
+      className={cn(s[`root_${mod}`], className)}
+      onClick={onClick}
+      type={type}
+    >
       {children}
     </button>
   );
