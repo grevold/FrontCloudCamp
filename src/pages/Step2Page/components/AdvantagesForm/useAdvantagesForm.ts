@@ -4,7 +4,9 @@ import { useAppSelector } from "../../../../store/store";
 export const useAdvantagesForm = () => {
   const userStore = useAppSelector((state) => state.userStore);
   const [advantages, setAdvantages] = useState<string[]>(
-    userStore.formStep2Values ? userStore.formStep2Values.advantages : []
+    userStore.formStep2Values
+      ? userStore.formStep2Values.advantages
+      : ["", "", ""]
   );
 
   function removeElementFromArrayByIndex<T>(array: T[], index: number): T[] {
