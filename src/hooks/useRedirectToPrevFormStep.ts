@@ -12,7 +12,7 @@ export const useRedirectToPrevFormStep = () => {
     const { pathname } = location;
 
     if (pathname === RoutePath.Step1Page && !userStore.signInFormValues) {
-      // navigate(RoutePath.MainPage);
+      navigate(RoutePath.MainPage);
     }
 
     if (pathname === RoutePath.Step2Page && !userStore.formStep1Values) {

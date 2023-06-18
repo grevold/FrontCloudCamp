@@ -1,16 +1,18 @@
 import { useFormStep1 } from "./useFormStep1";
 import { ButtonsNavigation } from "../ButtonsNavigation/ButtonsNavigation";
 import { FormStep1Values, Sex } from "../../../../types";
+import { Select } from "../../../../components/Select/Select";
+import { Controller } from "react-hook-form";
 
 import s from "./FormStep1.module.css";
-import { ChevronDown } from "../../../../icons/ChevronDown";
 
 interface Props {
   onSubmit: (formValues: FormStep1Values) => void;
 }
 
 export const FormStep1: React.FC<Props> = ({ onSubmit }) => {
-  const { register, formState, handleSubmit } = useFormStep1(onSubmit);
+  const { register, formState, handleSubmit, control, defaultValues } =
+    useFormStep1(onSubmit);
   const { errors } = formState;
 
   return (
@@ -62,14 +64,17 @@ export const FormStep1: React.FC<Props> = ({ onSubmit }) => {
         <div className={s.item}>
           <span className={s.title}>Sex</span>
           <div className={s.input_area}>
-            <div className={s.select_wrapper}>
-              <select className={s.select} {...register("sex")}>
-                {Object.values(Sex).map((value) => (
-                  <option className={s.sex}>{value}</option>
-                ))}
-              </select>
-              <ChevronDown className={s.chevronDown} />
-            </div>
+            <Controller
+              name="sex"
+              control={control}
+              render={({ field: { onChange } }) => (
+                <Select
+                  defaultOption={defaultValues?.sex}
+                  options={Object.values(Sex)}
+                  onChange={onChange}
+                />
+              )}
+            />
             {errors.sex && (
               <div className={s.error_message}>{errors.sex?.message}</div>
             )}
