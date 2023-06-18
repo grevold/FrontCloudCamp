@@ -1,5 +1,5 @@
 import { useFormStep2 } from "./useFormStep2";
-import { TrashIcon } from "../../../../icons/TrashIcon";
+import { AdvantagesForm } from "../AdvantagesForm/AdvantagesForm";
 import { ButtonsNavigation } from "../ButtonsNavigation/ButtonsNavigation";
 import { FormStep2Values } from "../../../../types";
 
@@ -13,54 +13,13 @@ const checkBoxVariants = [1, 2, 3];
 const radioVariants = [1, 2, 3];
 
 export const FormStep2: React.FC<Props> = ({ onSubmit }) => {
-  const {
-    handleSubmit,
-    register,
-    formState,
-    advantages,
-    handleAddAdvantage,
-    handleRemoveAdvantage,
-  } = useFormStep2(onSubmit);
+  const { handleSubmit, register, formState } = useFormStep2(onSubmit);
   const { errors } = formState;
-
-  const AdvantageInput = ({ index }: { index: number }) => {
-    const fieldName = `advantages.${index}`;
-    const errorMessage = errors.advantages?.[index]?.message;
-
-    return (
-      <div className={s.item}>
-        <input
-          // @ts-ignore
-          {...register(fieldName)}
-          className={s.input}
-          placeholder="Placeholder"
-          key={index}
-        />
-        <button
-          className={s.buttonDelete}
-          onClick={() => handleRemoveAdvantage(index)}
-        >
-          <TrashIcon />
-        </button>
-        {errorMessage && (
-          <span className={s.error_message}>{errorMessage}</span>
-        )}
-      </div>
-    );
-  };
 
   return (
     <form onSubmit={handleSubmit} className={s.root}>
       <div className={s.container}>
-        <div className={s.advantages}>
-          <h1 className={s.header}>Advantages</h1>
-          {advantages.map((_, index) => (
-            <AdvantageInput index={index} key={index} />
-          ))}
-          <button className={s.addAdvantages} onClick={handleAddAdvantage}>
-            +
-          </button>
-        </div>
+        <AdvantagesForm register={register} formState={formState} />
         <div className={s.checkBoxes}>
           <h1 className={s.header}>Checkbox group</h1>
           <ul className={s.checkBoxList}>

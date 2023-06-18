@@ -7,28 +7,12 @@
   width: 100%;
   max-width: 300px;
 }
-.header {
-  font-size: 14px;
-  font-weight: 400;
-  margin-bottom: 8px;
-}
-.item {
-  display: flex;
-  margin-bottom: 8px;
-}
-.input {
-  height: 44px;
-  background: none;
-  border: 1px solid rgba(0, 0, 0, 0.16);
-  border-radius: 4px;
-  padding: 12px;
-  width: 300px;
-}
+
 .select {
-  composes: input;
   margin-bottom: 88px;
   cursor: pointer;
 }
+
 .input_area {
   display: flex;
   flex-direction: column;
@@ -53,28 +37,12 @@ select::-ms-expand {
 .error_message {
   color: red;
 }
-.advantages {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 24px;
-}
-.addAdvantages {
-  width: 44px;
-  height: 44px;
-  color: #5558fa;
-  border: 1.5px solid #5558fa;
-  border-radius: 4px;
-  font-size: 26px;
-  font-weight: 400;
-}
+
 .addAdvantages:hover {
   background-color: #5558fa;
   color: white;
 }
 
-.buttonDelete {
-  margin-left: 18px;
-}
 .checkBoxList {
   list-style: none;
 }
