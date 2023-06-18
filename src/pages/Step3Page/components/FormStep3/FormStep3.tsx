@@ -1,20 +1,21 @@
 import { ButtonsNavigation } from "../ButtonsNavigation/ButtonsNavigation";
+import { FormStep3Values } from "../../../../types";
 import { useFormStep3 } from "./useFormStep3";
 
 import s from "./FormStep3.module.css";
 
 interface Props {
-  onSubmit: (about: string) => void;
+  onSubmit: (formValues: FormStep3Values) => void;
 }
 
 export const FormStep3: React.FC<Props> = ({ onSubmit }) => {
-  const { count, handleChange, formState, register, submit } =
+  const { count, handleChange, formState, register, handleSubmit } =
     useFormStep3(onSubmit);
   const { errors } = formState;
 
   return (
     <>
-      <form onSubmit={submit} className={s.form}>
+      <form onSubmit={handleSubmit} className={s.form}>
         <label className={s.label}>About</label>
         <div className={s.container}>
           <textarea

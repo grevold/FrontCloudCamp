@@ -10,3 +10,25 @@ export enum Sex {
   Man = "man",
   Woman = "woman",
 }
+
+export interface SignInFormValues {
+  email: string;
+  phone: string;
+}
+
+export interface FormStep1Values {
+  nickname: string;
+  name: string;
+  sername: string;
+  sex: Sex.Man | Sex.Woman;
+}
+
+export interface FormStep2Values {
+  advantages: string[];
+  checkBox: string[];
+  radio: string;
+}
+
+export interface FormStep3Values {
+  about: string;
+}

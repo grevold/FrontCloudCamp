@@ -1,25 +1,20 @@
 import { useFormStep1 } from "./useFormStep1";
 import { ButtonsNavigation } from "../ButtonsNavigation/ButtonsNavigation";
-import { Sex } from "../../../../types";
+import { FormStep1Values, Sex } from "../../../../types";
 
 import s from "./FormStep1.module.css";
 
 interface Props {
-  onSubmit: (
-    nickname: string,
-    name: string,
-    sername: string,
-    sex: string
-  ) => void;
+  onSubmit: (formValues: FormStep1Values) => void;
 }
 
 export const FormStep1: React.FC<Props> = ({ onSubmit }) => {
-  const { submit, register, formState, control } = useFormStep1(onSubmit);
+  const { register, formState, handleSubmit } = useFormStep1(onSubmit);
   const { errors } = formState;
 
   return (
     <>
-      <form onSubmit={submit} className={s.root}>
+      <form onSubmit={handleSubmit} className={s.root}>
         <div className={s.container}>
           <div className={s.item}>
             <span className={s.title}>Nickname</span>
