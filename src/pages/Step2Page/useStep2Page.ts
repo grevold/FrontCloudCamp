@@ -9,10 +9,15 @@ export const useStep2Page = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = (formValues: FormStep2Values) => {
+  const handleSubmitPrev = (formValues: FormStep2Values) => {
+    dispatch(userStoreActions.addStep2InFormValues(formValues));
+    navigate(RoutePath.Step1Page);
+  };
+
+  const handleSubmitNext = (formValues: FormStep2Values) => {
     dispatch(userStoreActions.addStep2InFormValues(formValues));
     navigate(RoutePath.Step3Page);
   };
 
-  return { handleSubmit };
+  return { handleSubmitPrev, handleSubmitNext };
 };

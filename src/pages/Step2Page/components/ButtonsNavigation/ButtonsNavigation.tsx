@@ -1,20 +1,17 @@
 import { StyledButton } from "../../../../components/StyledButton/StyledButton";
-import { StyledLink } from "../../../../components/StyledLink/StyledLink";
-import { RoutePath } from "../../../../types";
 import cn from "classnames";
 
 import s from "./ButtonsNavigation.module.css";
 
 interface Props {
   className?: string;
+  onClickPrev?: () => void;
 }
 
-export const ButtonsNavigation = ({ className }: Props) => {
+export const ButtonsNavigation = ({ className, onClickPrev }: Props) => {
   return (
     <div className={cn(s.root, className)}>
-      <StyledLink to={RoutePath.Step1Page} mod={"secondary"}>
-        Back
-      </StyledLink>
+      <StyledButton onClick={onClickPrev}>Back</StyledButton>
       <StyledButton type="submit">Далее</StyledButton>
     </div>
   );

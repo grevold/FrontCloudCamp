@@ -8,7 +8,8 @@ import { FormStep3 } from "./components/FormStep3/FormStep3";
 import { Status, useStep3Page } from "./useStep3Page";
 
 export const Step3Page = () => {
-  const { state, handleSubmit, handleModalWindowClose } = useStep3Page();
+  const { state, handleSubmitPrev, handleSubmitNext, handleModalWindowClose } =
+    useStep3Page();
 
   if (state.status === Status.Loading) {
     return <PreloaderScreen />;
@@ -27,7 +28,10 @@ export const Step3Page = () => {
       )}
       <FormContainer>
         <ProgressBar currentValue={3} maxValue={3} />
-        <FormStep3 onSubmit={handleSubmit} />
+        <FormStep3
+          onSubmitPrev={handleSubmitPrev}
+          onSubmitNext={handleSubmitNext}
+        />
       </FormContainer>
     </Container>
   );

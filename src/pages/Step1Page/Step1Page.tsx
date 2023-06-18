@@ -5,13 +5,16 @@ import { FormStep1 } from "./components/FormStep1/FormStep1";
 import { useStep1Page } from "./useStep1Page";
 
 export const Step1Page = () => {
-  const { handleSubmit } = useStep1Page();
+  const { handleSubmitPrev, handleSubmitNext } = useStep1Page();
 
   return (
     <Container>
       <FormContainer>
         <ProgressBar currentValue={1} maxValue={3} />
-        <FormStep1 onSubmit={handleSubmit} />
+        <FormStep1
+          onSubmitPrev={handleSubmitPrev}
+          onSubmitNext={handleSubmitNext}
+        />
       </FormContainer>
     </Container>
   );
