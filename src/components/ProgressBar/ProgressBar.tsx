@@ -1,3 +1,4 @@
+import { SmallArrow } from "../../icons/SmallArrow";
 import s from "./ProgressBar.module.css";
 
 interface Props {
@@ -13,12 +14,18 @@ export function ProgressBar({ currentValue, maxValue }: Props) {
       <div className={s.row}>
         {arr.map((_, index) => (
           <div key={index} className={s.item}>
-            {index + 1 < currentValue && <div className={s.activePoint}>✔</div>}
+            {index + 1 < currentValue && (
+              <div className={s.activePoint}>
+                <SmallArrow />
+              </div>
+            )}
             {index + 1 === currentValue && (
               <div className={s.activePoint}>•</div>
             )}
             {index + 1 > currentValue && <div className={s.point} />}
-            <span className={s.number}>{index + 1}</span>
+            <span className={index < currentValue ? s.number_active : s.number}>
+              {index + 1}
+            </span>
           </div>
         ))}
         <div

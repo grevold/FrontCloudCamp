@@ -1,41 +1,67 @@
 .root {
-  margin-top: 67px;
+  margin-top: 43px;
 }
+
 .container {
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 300px;
 }
+
 .item {
   display: flex;
   flex-direction: column;
-  margin-top: 24px;
+  margin-top: 27px;
 }
+
 .input {
   height: 44px;
   background: none;
   border: 1px solid rgba(0, 0, 0, 0.16);
   border-radius: 4px;
   padding: 12px;
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
 }
+
+.select_wrapper {
+  position: relative;
+}
+
+.chevronDown {
+  position: absolute;
+  bottom: 12px;
+  right: 15px;
+  pointer-events: none;
+}
+
 .select {
   composes: input;
   cursor: pointer;
+  appearance: none;
 }
+
+.sex {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.optionContent {
+  width: 400px;
+}
+
 .input_area {
   display: flex;
   flex-direction: column;
 }
-select::-ms-expand {
-  display: none;
-}
+
 .title {
   font-size: 14px;
   font-weight: 400;
   margin-bottom: 8px;
 }
+
 .tip {
   font-size: 12px;
   font-weight: 400;
@@ -43,8 +69,14 @@ select::-ms-expand {
   margin-top: 8px;
   cursor: pointer;
 }
+
 .error_message {
-  color: red;
+  color: rgb(236, 61, 61);
+}
+
+.buttons {
+  margin-top: 82px;
+  width: 100%;
 }
 
 @media (min-width: 600px) {
@@ -53,7 +85,7 @@ select::-ms-expand {
   }
   .input_area {
     display: flex;
-    flex-direction: row;
+    flesx-direction: row;
     align-items: center;
   }
   .error_message {

@@ -14,6 +14,11 @@
 }
 
 .link {
-  display: block;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
+  width: 100%;
+  max-width: 109px;
 }

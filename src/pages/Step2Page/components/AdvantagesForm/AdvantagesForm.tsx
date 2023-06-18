@@ -26,9 +26,9 @@ export const AdvantagesForm: React.FC<Props> = ({ register, formState }) => {
           errorMessage={formState.errors?.advantages?.[index]?.message}
         />
       ))}
-      <button className={s.addAdvantages} onClick={handleAddAdvantage}>
+      <div className={s.addAdvantages} onClick={handleAddAdvantage}>
         +
-      </button>
+      </div>
     </div>
   );
 };
