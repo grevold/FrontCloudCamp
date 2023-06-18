@@ -11,8 +11,12 @@ interface Props {
 export const ButtonsNavigation = ({ className, onClickPrev }: Props) => {
   return (
     <div className={cn(s.root, className)}>
-      <StyledButton onClick={onClickPrev}>Back</StyledButton>
-      <StyledButton type="submit">Далее</StyledButton>
+      <StyledButton onClick={onClickPrev} mod={"secondary"}>
+        Back
+      </StyledButton>
+      <StyledButton type="submit" mod={"primary"}>
+        Далее
+      </StyledButton>
     </div>
   );
 };
