@@ -1,0 +1,42 @@
+.root {
+  max-width: 300px;
+  width: 100%;
+  cursor: pointer;
+  user-select: none;
+  font-size: 14px;
+  font-weight: 400;
+  position: relative;
+}
+
+.row {
+  display: flex;
+  padding: 0 12px;
+  align-items: center;
+  position: relative;
+  height: 40px;
+}
+
+.head {
+  composes: row;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 4px;
+  color: rgba(0, 0, 0, 0.48);
+  height: 44px;
+}
+
+.icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translate(0, -50%);
+  pointer-events: none;
+}
+
+.list {
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+}

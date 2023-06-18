@@ -25,35 +25,14 @@
   max-width: 300px;
 }
 
-.select_wrapper {
-  position: relative;
-}
-
-.chevronDown {
-  position: absolute;
-  bottom: 12px;
-  right: 15px;
-  pointer-events: none;
-}
-
-.select {
-  composes: input;
-  cursor: pointer;
-  appearance: none;
+.input_area {
+  display: flex;
+  flex-direction: column;
 }
 
 .sex {
   font-size: 14px;
   font-weight: 400;
-}
-
-.optionContent {
-  width: 400px;
-}
-
-.input_area {
-  display: flex;
-  flex-direction: column;
 }
 
 .title {
@@ -75,7 +54,7 @@
 }
 
 .buttons {
-  margin-top: 82px;
+  margin-top: 89px;
   width: 100%;
 }
 
@@ -85,7 +64,7 @@
   }
   .input_area {
     display: flex;
-    flesx-direction: row;
+    flex-direction: row;
     align-items: center;
   }
   .error_message {

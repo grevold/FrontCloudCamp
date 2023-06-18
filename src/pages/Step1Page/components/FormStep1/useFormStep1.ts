@@ -32,13 +32,20 @@ export const useFormStep1 = (
   onSubmit: (formValues: FormStep1Values) => void
 ) => {
   const userStore = useAppSelector((state) => state.userStore);
+  const defaultValues = userStore.formStep1Values;
   const { register, handleSubmit, formState, control } =
     useForm<FormStep1Values>({
       mode: "onTouched",
       // @ts-ignore
       resolver: yupResolver(formSchema),
-      defaultValues: userStore.formStep1Values,
+      defaultValues,
     });
 
-  return { register, formState, control, handleSubmit: handleSubmit(onSubmit) };
+  return {
+    register,
+    formState,
+    control,
+    handleSubmit: handleSubmit(onSubmit),
+    defaultValues,
+  };
 };
