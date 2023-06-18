@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../store/store";
 import { FormStep3Values } from "../../types";
 import { userAsyncThunk } from "../../store/components/user/userAsyncThunk";
 import { userStoreActions } from "../../store/components/user/userSlice";
+import { useRedirectToPrevFormStep } from "../../hooks/useRedirectToPrevFormStep";
 
 export enum Status {
   Init = "Init",
@@ -21,6 +22,7 @@ type State =
     };
 
 export const useStep3Page = () => {
+  useRedirectToPrevFormStep();
   const [state, setState] = useState<State>({
     status: Status.Init,
   });

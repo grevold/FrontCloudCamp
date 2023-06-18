@@ -25,7 +25,7 @@ export const Step3Page = () => {
         <ModalWindowSuccess onClose={handleModalWindowClose} />
       )}
       <FormContainer>
-        <ProgressBar currentValue={2} maxValue={3} />
+        <ProgressBar currentValue={3} maxValue={3} />
         <FormStep3 onSubmit={handleSubmit} />
       </FormContainer>
     </Container>

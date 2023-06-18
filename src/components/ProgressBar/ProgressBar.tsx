@@ -13,7 +13,11 @@ export function ProgressBar({ currentValue, maxValue }: Props) {
       <div className={s.row}>
         {arr.map((_, index) => (
           <div key={index} className={s.item}>
-            <div className={s.point}></div>
+            {index + 1 < currentValue && <div className={s.activePoint}>✔</div>}
+            {index + 1 === currentValue && (
+              <div className={s.activePoint}>•</div>
+            )}
+            {index + 1 > currentValue && <div className={s.point} />}
             <span className={s.number}>{index + 1}</span>
           </div>
         ))}
