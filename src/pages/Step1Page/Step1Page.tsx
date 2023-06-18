@@ -10,7 +10,7 @@ export const Step1Page = () => {
   return (
     <Container>
       <FormContainer>
-        <ProgressBar currentValue={2} maxValue={3} />
+        <ProgressBar currentValue={1} maxValue={3} />
         <FormStep1 onSubmit={handleSubmit} />
       </FormContainer>
     </Container>

@@ -35,6 +35,15 @@
   margin-bottom: 12px;
 }
 
+.activePoint {
+  composes: point;
+  background-color: #5558fa;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .number {
   font-weight: 400;
   font-size: 14px;
