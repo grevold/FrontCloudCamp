@@ -15,7 +15,7 @@ export const StyledButton: FC<PropsWithChildren<Props>> = ({
   children,
   className,
   type,
-  mod,
+  mod = "primary",
 }) => {
   return (
     <button
