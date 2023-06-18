@@ -14,7 +14,7 @@ const formSchema = object().shape({
     .max(200, "Превышено количество символов"),
 });
 
-export function useFormStep3() {
+export function useFormStep3(onSubmit: (about: string) => void) {
   const [count, setCount] = useState<number>(0);
 
   function getStringLengthWithOutSpaces(str: string): number {
@@ -29,11 +29,13 @@ export function useFormStep3() {
     setCount(getStringLengthWithOutSpaces(event.target.value));
   }
 
-  const { register, formState } = useForm<FormValues>({
+  const { register, formState, handleSubmit } = useForm<FormValues>({
     mode: "onTouched",
     // @ts-ignore
     resolver: yupResolver(formSchema),
   });
 
-  return { count, handleChange, formState, register };
+  const submit = handleSubmit(({ about }: FormValues) => onSubmit(about));
+
+  return { count, handleChange, formState, register, submit };
 }

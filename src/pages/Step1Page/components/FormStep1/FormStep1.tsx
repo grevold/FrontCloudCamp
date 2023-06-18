@@ -11,16 +11,15 @@ interface Props {
     sername: string,
     sex: string
   ) => void;
-  onClick: () => void;
 }
 
-export const FormStep1: React.FC<Props> = ({ onSubmit, onClick }) => {
+export const FormStep1: React.FC<Props> = ({ onSubmit }) => {
   const { submit, register, formState, control } = useFormStep1(onSubmit);
   const { errors } = formState;
 
   return (
     <>
-      <form onSubmit={submit} onClick={onClick} className={s.root}>
+      <form onSubmit={submit} className={s.root}>
         <div className={s.container}>
           <div className={s.item}>
             <span className={s.title}>Nickname</span>

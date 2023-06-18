@@ -6,13 +6,12 @@ import s from "./FormStep2.module.css";
 
 interface Props {
   onSubmit: (advantages: string[], checkBox: string, radio: string) => void;
-  onClick: () => void;
 }
 
 const checkBoxVariants = [1, 2, 3];
 const radioVariants = [1, 2, 3];
 
-export const FormStep2: React.FC<Props> = ({ onSubmit, onClick }) => {
+export const FormStep2: React.FC<Props> = ({ onSubmit }) => {
   const {
     submit,
     register,
@@ -50,7 +49,7 @@ export const FormStep2: React.FC<Props> = ({ onSubmit, onClick }) => {
   };
 
   return (
-    <form onSubmit={submit} onClick={onClick} className={s.root}>
+    <form onSubmit={submit} className={s.root}>
       <div className={s.container}>
         <div className={s.advantages}>
           <h1 className={s.header}>Advantages</h1>

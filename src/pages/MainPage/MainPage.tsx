@@ -4,14 +4,11 @@ import { SignInForm } from "./components/SignInForm/SignInForm";
 
 import s from "./MainPage.module.css";
 
-export function MainPage() {
+export const MainPage = () => {
   return (
     <Container className={s.root}>
       <Header />
-      <SignInForm
-        onClick={() => console.log("Click!")}
-        onSubmit={console.log}
-      />
+      <SignInForm onSubmit={console.log} />
     </Container>
   );
-}
+};

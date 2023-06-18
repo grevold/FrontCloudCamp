@@ -7,7 +7,7 @@ interface Props {
   disabled?: boolean;
 }
 
-export function ButtonsNavigation({ disabled }: Props) {
+export const ButtonsNavigation: React.FC<Props> = ({ disabled }) => {
   return (
     <div className={s.root}>
       <StyledLink to={RoutePath.Step2Page} mod={"secondary"}>
@@ -18,4 +18,4 @@ export function ButtonsNavigation({ disabled }: Props) {
       </StyledLink>
     </div>
   );
-}
+};
