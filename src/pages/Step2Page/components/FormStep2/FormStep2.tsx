@@ -6,18 +6,20 @@ import { FormStep2Values } from "../../../../types";
 import s from "./FormStep2.module.css";
 
 interface Props {
-  onSubmit: (formValues: FormStep2Values) => void;
+  onSubmitPrev: (formValues: FormStep2Values) => void;
+  onSubmitNext: (formValues: FormStep2Values) => void;
 }
 
 const checkBoxVariants = [1, 2, 3];
 const radioVariants = [1, 2, 3];
 
-export const FormStep2: React.FC<Props> = ({ onSubmit }) => {
-  const { handleSubmit, register, formState } = useFormStep2(onSubmit);
+export const FormStep2: React.FC<Props> = ({ onSubmitPrev, onSubmitNext }) => {
+  const { handleSubmitPrev, handleSubmitNext, register, formState } =
+    useFormStep2(onSubmitPrev, onSubmitNext);
   const { errors } = formState;
 
   return (
-    <form onSubmit={handleSubmit} className={s.root}>
+    <form onSubmit={handleSubmitNext} className={s.root}>
       <div className={s.container}>
         <AdvantagesForm register={register} formState={formState} />
         <div>
@@ -65,7 +67,7 @@ export const FormStep2: React.FC<Props> = ({ onSubmit }) => {
           </div>
         </div>
       </div>
-      <ButtonsNavigation className={s.buttons} />
+      <ButtonsNavigation onClickPrev={handleSubmitPrev} className={s.buttons} />
     </form>
   );
 };

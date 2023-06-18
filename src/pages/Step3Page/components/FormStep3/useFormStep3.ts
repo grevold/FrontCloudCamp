@@ -11,7 +11,10 @@ const formSchema = object().shape({
     .max(200, "Превышено количество символов"),
 });
 
-export function useFormStep3(onSubmit: (formValues: FormStep3Values) => void) {
+export function useFormStep3(
+  onSubmitPrev: (formValues: FormStep3Values) => void,
+  onSubmitNext: (formValues: FormStep3Values) => void
+) {
   const userStore = useAppSelector((state) => state.userStore);
   const [count, setCount] = useState<number>(0);
 
@@ -34,11 +37,15 @@ export function useFormStep3(onSubmit: (formValues: FormStep3Values) => void) {
     defaultValues: userStore.formStep3Values,
   });
 
+  const handleSubmitPrev = handleSubmit(onSubmitPrev);
+  const handleSubmitNext = handleSubmit(onSubmitNext);
+
   return {
     count,
     handleChange,
     formState,
     register,
-    handleSubmit: handleSubmit(onSubmit),
+    handleSubmitPrev,
+    handleSubmitNext,
   };
 }

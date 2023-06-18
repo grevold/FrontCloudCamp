@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/store";
-import { FormStep3Values } from "../../types";
+import { FormStep3Values, RoutePath } from "../../types";
 import { userAsyncThunk } from "../../store/components/user/userAsyncThunk";
 import { userStoreActions } from "../../store/components/user/userSlice";
 import { useRedirectToPrevFormStep } from "../../hooks/useRedirectToPrevFormStep";
+import { useNavigate } from "react-router";
 
 export enum Status {
   Init = "Init",
@@ -22,6 +23,7 @@ type State =
     };
 
 export const useStep3Page = () => {
+  const navigate = useNavigate();
   useRedirectToPrevFormStep();
   const [state, setState] = useState<State>({
     status: Status.Init,
@@ -42,7 +44,12 @@ export const useStep3Page = () => {
     });
   };
 
-  const handleSubmit = (formValues: FormStep3Values) => {
+  const handleSubmitPrev = (formValues: FormStep3Values) => {
+    dispatch(userStoreActions.addStep3InFormValues(formValues));
+    navigate(RoutePath.Step2Page);
+  };
+
+  const handleSubmitNext = (formValues: FormStep3Values) => {
     setState({ status: Status.Loading });
     dispatch(userStoreActions.addStep3InFormValues(formValues));
     dispatch(userAsyncThunk({ ...userStore, formStep3Values: formValues }))
@@ -56,5 +63,5 @@ export const useStep3Page = () => {
     });
   };
 
-  return { state, handleSubmit, handleModalWindowClose };
+  return { state, handleSubmitPrev, handleSubmitNext, handleModalWindowClose };
 };

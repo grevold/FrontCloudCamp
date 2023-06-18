@@ -29,7 +29,8 @@ const formSchema = object().shape({
 });
 
 export const useFormStep1 = (
-  onSubmit: (formValues: FormStep1Values) => void
+  onSubmitPrev: (formValues: FormStep1Values) => void,
+  onSubmitNext: (formValues: FormStep1Values) => void
 ) => {
   const userStore = useAppSelector((state) => state.userStore);
   const defaultValues = userStore.formStep1Values;
@@ -41,11 +42,15 @@ export const useFormStep1 = (
       defaultValues,
     });
 
+  const handleSubmitPrev = handleSubmit(onSubmitPrev);
+  const handleSubmitNext = handleSubmit(onSubmitNext);
+
   return {
     register,
     formState,
     control,
-    handleSubmit: handleSubmit(onSubmit),
+    handleSubmitPrev,
+    handleSubmitNext,
     defaultValues,
   };
 };

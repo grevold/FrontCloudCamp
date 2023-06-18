@@ -7,16 +7,23 @@ import { Controller } from "react-hook-form";
 import s from "./FormStep1.module.css";
 
 interface Props {
-  onSubmit: (formValues: FormStep1Values) => void;
+  onSubmitPrev: (formValues: FormStep1Values) => void;
+  onSubmitNext: (formValues: FormStep1Values) => void;
 }
 
-export const FormStep1: React.FC<Props> = ({ onSubmit }) => {
-  const { register, formState, handleSubmit, control, defaultValues } =
-    useFormStep1(onSubmit);
+export const FormStep1: React.FC<Props> = ({ onSubmitPrev, onSubmitNext }) => {
+  const {
+    register,
+    formState,
+    handleSubmitPrev,
+    handleSubmitNext,
+    control,
+    defaultValues,
+  } = useFormStep1(onSubmitPrev, onSubmitNext);
   const { errors } = formState;
 
   return (
-    <form onSubmit={handleSubmit} className={s.root}>
+    <form onSubmit={handleSubmitNext} className={s.root}>
       <div className={s.container}>
         <div className={s.item}>
           <span className={s.title}>Nickname</span>
@@ -81,7 +88,7 @@ export const FormStep1: React.FC<Props> = ({ onSubmit }) => {
           </div>
         </div>
       </div>
-      <ButtonsNavigation className={s.buttons} />
+      <ButtonsNavigation onClickPrev={handleSubmitPrev} className={s.buttons} />
     </form>
   );
 };

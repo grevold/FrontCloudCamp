@@ -16,7 +16,8 @@ const formSchema = object().shape({
 });
 
 export const useFormStep2 = (
-  onSubmit: (formValues: FormStep2Values) => void
+  onSubmitPrev: (formValues: FormStep2Values) => void,
+  onSubmitNext: (formValues: FormStep2Values) => void
 ) => {
   const userStore = useAppSelector((state) => state.userStore);
   const { register, handleSubmit, formState } = useForm<FormStep2Values>({
@@ -29,8 +30,12 @@ export const useFormStep2 = (
     },
   });
 
+  const handleSubmitPrev = handleSubmit(onSubmitPrev);
+  const handleSubmitNext = handleSubmit(onSubmitNext);
+
   return {
-    handleSubmit: handleSubmit(onSubmit),
+    handleSubmitPrev,
+    handleSubmitNext,
     register,
     formState,
   };

@@ -5,16 +5,23 @@ import { useFormStep3 } from "./useFormStep3";
 import s from "./FormStep3.module.css";
 
 interface Props {
-  onSubmit: (formValues: FormStep3Values) => void;
+  onSubmitPrev: (formValues: FormStep3Values) => void;
+  onSubmitNext: (formValues: FormStep3Values) => void;
 }
 
-export const FormStep3: React.FC<Props> = ({ onSubmit }) => {
-  const { count, handleChange, formState, register, handleSubmit } =
-    useFormStep3(onSubmit);
+export const FormStep3: React.FC<Props> = ({ onSubmitPrev, onSubmitNext }) => {
+  const {
+    count,
+    handleChange,
+    formState,
+    register,
+    handleSubmitPrev,
+    handleSubmitNext,
+  } = useFormStep3(onSubmitPrev, onSubmitNext);
   const { errors } = formState;
 
   return (
-    <form onSubmit={handleSubmit} className={s.form}>
+    <form onSubmit={handleSubmitNext} className={s.form}>
       <label className={s.label}>About</label>
       <div className={s.container}>
         <textarea
@@ -29,7 +36,7 @@ export const FormStep3: React.FC<Props> = ({ onSubmit }) => {
       {errors.about?.message && (
         <div className={s.error_message}>{errors.about?.message}</div>
       )}
-      <ButtonsNavigation className={s.buttons} />
+      <ButtonsNavigation onClickPrev={handleSubmitPrev} className={s.buttons} />
     </form>
   );
 };
