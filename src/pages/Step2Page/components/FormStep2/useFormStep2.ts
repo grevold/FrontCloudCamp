@@ -4,6 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { texts } from "../../../../texts";
 import { useState } from "react";
 import { FormStep2Values } from "../../../../types";
+import { useAppSelector } from "../../../../store/store";
 
 const { advantages, checkBox, radio } = texts.Errors.Step2;
 
@@ -16,12 +17,16 @@ const formSchema = object().shape({
 export const useFormStep2 = (
   onSubmit: (formValues: FormStep2Values) => void
 ) => {
+  const userStore = useAppSelector((state) => state.userStore);
   const { register, handleSubmit, formState } = useForm<FormStep2Values>({
     mode: "onTouched",
     // @ts-ignore
     resolver: yupResolver(formSchema),
+    defaultValues: userStore.formStep2Values,
   });
-  const [advantages, setAdvantages] = useState<string[]>([""]);
+  const [advantages, setAdvantages] = useState<string[]>(
+    userStore.formStep2Values ? userStore.formStep2Values.advantages : []
+  );
 
   function removeElementFromArrayByIndex<T>(array: T[], index: number): T[] {
     const result = [];
@@ -35,6 +40,7 @@ export const useFormStep2 = (
 
   const handleAddAdvantage = () =>
     setAdvantages((advantages) => [...advantages, ""]);
+
   const handleRemoveAdvantage = (index: number) =>
     setAdvantages((advantages) =>
       removeElementFromArrayByIndex(advantages, index)

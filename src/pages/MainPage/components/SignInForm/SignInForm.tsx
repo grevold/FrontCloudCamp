@@ -1,6 +1,6 @@
 import { useSignInForm } from "./useSignInForm";
-import { StyledLink } from "../../../../components/StyledLink/StyledLink";
-import { RoutePath, SignInFormValues } from "../../../../types";
+import { StyledButton } from "../../../../components/StyledButton/StyledButton";
+import { SignInFormValues } from "../../../../types";
 import { withHookFormMask } from "use-mask-input";
 
 import s from "./SignInForm.module.css";
@@ -44,10 +44,7 @@ export const SignInForm: React.FC<Props> = ({ onSubmit }) => {
           )}
         </div>
       </div>
-      <StyledLink to={RoutePath.Step1Page} disabled={!formState.isValid}>
-        Начать
-      </StyledLink>
-      <button type="submit">Submit</button>
+      <StyledButton type="submit">Начать</StyledButton>
     </form>
   );
 };

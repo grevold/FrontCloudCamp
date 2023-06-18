@@ -3,6 +3,7 @@ import { object, string } from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { texts } from "../../../../texts";
 import { SignInFormValues } from "../../../../types";
+import { useAppSelector } from "../../../../store/store";
 
 const { email, phone } = texts.Errors.SignIn;
 
@@ -16,10 +17,12 @@ const formSchema = object().shape({
 export const useSignInForm = (
   onSubmit: (formValues: SignInFormValues) => void
 ) => {
+  const userStore = useAppSelector((state) => state.userStore);
   const { register, handleSubmit, formState } = useForm<SignInFormValues>({
     mode: "onTouched",
     // @ts-ignore
     resolver: yupResolver(formSchema),
+    defaultValues: userStore.signInFormValues,
   });
 
   return { register, formState, handleSubmit: handleSubmit(onSubmit) };

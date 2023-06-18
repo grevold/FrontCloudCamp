@@ -32,3 +32,15 @@ export interface FormStep2Values {
 export interface FormStep3Values {
   about: string;
 }
+
+export interface UserState {
+  signInFormValues?: SignInFormValues;
+  formStep1Values?: FormStep1Values;
+  formStep2Values?: FormStep2Values;
+  formStep3Values?: FormStep3Values;
+}
+
+export interface SubmitResponse {
+  status: string;
+  message: string;
+}
