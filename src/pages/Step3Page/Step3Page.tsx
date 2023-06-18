@@ -16,7 +16,10 @@ export const Step3Page = () => {
   return (
     <Container>
       {state.status === Status.Error && (
-        <ModalWindowError onClose={handleModalWindowClose} />
+        <ModalWindowError
+          onClose={handleModalWindowClose}
+          errorMessage={state.errorMessage}
+        />
       )}
       {state.status === Status.Success && (
         <ModalWindowSuccess onClose={handleModalWindowClose} />

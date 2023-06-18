@@ -1,6 +1,7 @@
 import { SuccessIcon } from "../../icons/SuccessIcon";
+import { RoutePath } from "../../types";
 import { ModalWindow } from "../ModalWindow/ModalWindow";
-import { StyledButton } from "../StyledButton/StyledButton";
+import { StyledLink } from "../StyledLink/StyledLink";
 
 import s from "./ModalWindowSuccess.module.css";
 
@@ -14,9 +15,9 @@ export function ModalWindowSuccess({ onClose }: Props) {
       <>
         <h1 className={s.header}>Форма успешно отправлена</h1>
         <SuccessIcon className={s.successIcon} />
-        <StyledButton onClick={onClose} className={s.button}>
+        <StyledLink className={s.link} to={RoutePath.MainPage}>
           На главную
-        </StyledButton>
+        </StyledLink>
       </>
     </ModalWindow>
   );
